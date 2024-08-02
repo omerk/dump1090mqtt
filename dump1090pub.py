@@ -39,7 +39,7 @@ def publish():
 
     (options, _) = parse_options()
 
-    ttc = paho.Client()
+    ttc = paho.Client(paho.CallbackAPIVersion.VERSION1)
     if options.mqtt_user != '':
         ttc.username_pw_set(options.mqtt_user, password=options.mqtt_password)
     ttc.connect(options.mqtt_host, options.mqtt_port)
